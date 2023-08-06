@@ -1,0 +1,12 @@
+﻿@page "/"
+
+<PageTitle>Pesquisar Livro</PageTitle>
+
+<MudText Typo="Typo.h3" >Pesquisar livro</MudText>
+<MudText Class="mb-8">Associe seu Amazon Kindle</MudText>
+<MudTextField @bind-Value="Search" Label="Nome do Livro" Variant="Variant.Outlined" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary" />
+
+@code
+{
+    public string Search { get; set; }
+}

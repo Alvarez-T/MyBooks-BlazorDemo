@@ -1,0 +1,48 @@
+﻿<MudCard Elevation="0" Square="true">
+    <MudCardHeader>
+        <CardHeaderAvatar>
+            @if (string.IsNullOrEmpty(ImageDataUrl))
+            {
+                <MudAvatar Color="Color.Secondary">T</MudAvatar>
+            }
+            else
+            {
+                <MudAvatar Image="@ImageDataUrl" Style="height:50px; width:50px;"> </MudAvatar>
+            }
+        </CardHeaderAvatar>
+        <CardHeaderContent>
+            <MudText Typo="Typo.body2">Thiago Alvarez</MudText>
+            <MudText Typo="Typo.caption">thiago.alvarez2012@gmail.com</MudText>
+        </CardHeaderContent>
+    </MudCardHeader>
+</MudCard>
+
+@code {
+    [Parameter]
+    public string ImageDataUrl { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+       // await LoadDataAsync();
+    }
+
+    //private async Task LoadDataAsync()
+    //{
+    //    var state = await _stateProvider.GetAuthenticationStateAsync();
+    //    var user = state.User;
+
+    //    this.Email = user.GetEmail().Replace(".com", string.Empty);
+    //    this.FirstName = user.GetFirstName();
+    //    this.SecondName = user.GetLastName();
+    //    if (this.FirstName.Length > 0)
+    //    {
+    //        FirstLetterOfName = FirstName[0];
+    //    }
+    //    var UserId = user.GetUserId();
+    //    var imageResponse = await _accountManager.GetProfilePictureAsync(UserId);
+    //    if (imageResponse.Succeeded)
+    //    {
+    //        ImageDataUrl = imageResponse.Data;
+    //    }
+    //}
+}

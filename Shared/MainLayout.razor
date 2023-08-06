@@ -1,0 +1,45 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout >
+    <MudAppBar Elevation="25">
+        <MudIcon Icon="@Icons.Material.Filled.Book" />
+        <MudText Typo="Typo.h6" Class="ml-4">MyBooks</MudText>
+        <MudToolBar DisableGutters="true">
+            <MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" OnClick="@((e) => DrawerToggle())" Class="ml-3" />
+        </MudToolBar>
+        <MudSpacer />
+        <MudTooltip Text="Altere o tema da página">
+            <MudToggleIconButton @bind-Toggled="@_isDarkMode" Color="Color.Inherit"
+                                 Icon="@Icons.Material.Filled.Brightness3" Title="Escuro"
+                                 ToggledIcon="@Icons.Material.Filled.Brightness4" ToggledTitle="Claro" />
+        </MudTooltip>
+        <MudTooltip Text="Alvarez-T">
+            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/Alvarez-T" Target="_blank" />
+        </MudTooltip>
+        
+    </MudAppBar>
+    <MudDrawer @bind-Open="_drawerOpen" Elevation="25" ClipMode="DrawerClipMode.Always">
+        <NavMenu />
+    </MudDrawer>
+
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Large" Class="my-8 pt-8">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    bool _drawerOpen = true;
+    private MudTheme _theme = new();
+    private bool _isDarkMode;
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+}
